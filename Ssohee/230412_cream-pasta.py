@@ -1,4 +1,4 @@
-# 230405 백준 25214 크림파스타
+# 230412 백준 25214 크림파스타
 # https://www.acmicpc.net/problem/25214
 
 N = int(input())
