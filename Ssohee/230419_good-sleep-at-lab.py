@@ -12,7 +12,6 @@ for p in page_li:
     if p in total:
         del total[total.index(p)]   # 빠진 페이지를 계산
     
-
 # 4를 기준으로!!!
 # 이제 total은 새롭게 출력해야할 페이지
 
@@ -30,7 +29,7 @@ else:
             new.append(total[start:i+1])
             start = i+1
     new.append(total[start:])
-
+    print(new)
     for n in new:
         result += 5 + 2*(n[-1]-n[0]+1)
     print(result)
