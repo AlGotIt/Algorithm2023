@@ -1,3 +1,7 @@
+# 230329 프로그래머스 호텔 대실
+# https://school.programmers.co.kr/learn/courses/30/lessons/155651
+
+
 def solution(book_time):
     new_book_time = []  # 분 단위로 변형
     for start, end in book_time:
