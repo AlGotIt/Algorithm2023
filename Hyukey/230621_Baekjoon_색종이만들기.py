@@ -19,7 +19,6 @@ def counter(x, y, N):
         counter(x+N // 2, y, N // 2)
         counter(x, y+N //  2, N // 2)
         counter(x+N // 2, y+N //  2, N // 2)
-    return
 
 counter(0, 0, N)
 print(white_count)
