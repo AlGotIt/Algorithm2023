@@ -1,19 +1,25 @@
 #include <iostream>
 #include <vector>
+#include <set>
+#include <algorithm>
  
 using namespace std;
  
-int N, S, result;
+int N, M;
+set<vector<int>> unique_row; // 부분 수열을 저장할 집합
  
 // 백트래킹을 이용하여 부분 수열 생성
 void generateSubsequences(vector<int>& sequence, vector<int>& current, int index) {
-    if (index == sequence.size()) {
-        // 현재 부분 수열 출력
-        int sum = 0;
-        for (int num : current) {
-            sum += num;
+    if (index == sequence.size()){
+        if (current.size() == M) {
+            vector<int> temp;
+            for (int num : current) {
+                temp.push_back(num);
+            }
+
+            sort(temp.begin(), temp.end()); // 오름차순 정렬
+            unique_row.insert(temp);
         }
-        if (current.size() != 0 && sum == S) result++;
         return;
     }
  
@@ -32,7 +38,7 @@ int main() {
     vector<int> sequence;
     vector<int> current;
  
-    cin >> N >> S;
+    cin >> N >> M;
  
     int num;
     for (int i=0; i<N; i++) {
@@ -41,8 +47,13 @@ int main() {
     }
  
     generateSubsequences(sequence, current, 0);
-    cout << result << endl;
+ 
+    for (const auto& row : unique_row) {
+        for (int v : row) {
+            cout << v << " ";
+        }
+        cout << endl;
+    }
  
     return 0;
 }
- 
